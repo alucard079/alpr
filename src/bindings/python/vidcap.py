@@ -2,16 +2,20 @@ import numpy as np
 import cv2
 from openalpr import Alpr
 
-alpr = Alpr("eu", "openalpr.conf", "openalpr/runtime_data")
+alpr = Alpr("ph", "openalpr/runtime_data/config/ph.conf", "openalpr/runtime_data")
 if not alpr.is_loaded():
     print("Error loading OpenALPR")
     sys.exit(1)
 
 alpr.set_top_n(12)
-alpr.set_default_region("md")
+alpr.set_default_region("ph")
 
-#cap = cv2.VideoCapture("http://91.190.227.198/mjpg/video.mjpg")
-cap = cv2.VideoCapture("numPlates.mpg")
+
+cap = cv2.VideoCapture("rtsp://admin:admin123@192.168.1.109:554/cam/realmonitor?channel=1&subtype=1")
+#to see what the output must be
+#cap = cv2.VideoCapture("lp3.jpg")
+#sample video
+#cap = cv2.VideoCapture("numPlates.mpg")
 
 while(True):    
     ret, frame = cap.read() 
