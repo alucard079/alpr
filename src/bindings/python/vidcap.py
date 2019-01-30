@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 from openalpr import Alpr
 
-alpr = Alpr("ph", "openalpr/runtime_data/config/ph.conf", "openalpr/runtime_data")
+alpr = Alpr("ph", "openalpr.conf", "openalpr/runtime_data")
 if not alpr.is_loaded():
     print("Error loading OpenALPR")
     sys.exit(1)
